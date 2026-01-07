@@ -1,0 +1,88 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Study Hub — Learning Materials</title>
+  <meta name="description" content="Study Hub — collection of study materials auto-loaded from repository" />
+  <link rel="stylesheet" href="assets/css/style.css" />
+</head>
+<body class="app" data-github-owner="" data-github-repo="" data-github-branch="main" data-materials-path="materials">
+  <a class="skip-link" href="#main">Skip to content</a>
+
+  <header class="topbar">
+    <div class="brand">
+      <h1>Study Hub</h1>
+      <p class="tagline">Auto-loaded study materials — search, filter, and share</p>
+    </div>
+
+    <div class="controls" aria-hidden="false">
+      <div class="search-wrap" role="search">
+        <label for="search" class="visually-hidden">Search materials</label>
+        <input id="search" type="search" placeholder="Search by title, subject, or file type..." aria-label="Search materials">
+      </div>
+
+      <div class="filters" aria-label="Filters">
+        <label for="subjectFilter">Subject</label>
+        <select id="subjectFilter" aria-label="Filter by subject">
+          <option value="">All subjects</option>
+        </select>
+
+        <label for="typeFilter">Type</label>
+        <select id="typeFilter" aria-label="Filter by type">
+          <option value="">All types</option>
+          <option value="pdf">PDF / Documents</option>
+          <option value="image">Images</option>
+          <option value="video">Video</option>
+          <option value="other">Other</option>
+        </select>
+
+        <button id="refreshBtn" title="Refresh list">Refresh</button>
+      </div>
+    </div>
+  </header>
+
+  <main id="main" class="main" role="main" aria-live="polite">
+    <section id="overview" class="overview" aria-hidden="false">
+      <p id="status">Loading materials…</p>
+    </section>
+
+    <section id="grid" class="grid" aria-label="Materials">
+      <!-- cards inserted here by JS -->
+    </section>
+  </main>
+
+  <footer class="footer">
+    <small>Made for students • Files are served directly from repository (raw) • Public repo recommended</small>
+  </footer>
+
+  <template id="card-template">
+    <article class="card">
+      <div class="card-preview"></div>
+      <div class="card-body">
+        <h3 class="card-title"></h3>
+        <p class="card-meta"></p>
+        <div class="card-actions">
+          <a class="link-open" target="_blank" rel="noopener">Open</a>
+          <button class="btn-preview" title="Preview in modal">Preview</button>
+        </div>
+      </div>
+    </article>
+  </template>
+
+  <div id="previewModal" class="modal" aria-hidden="true" role="dialog" aria-modal="true">
+    <div class="modal-inner">
+      <button id="modalClose" class="modal-close" aria-label="Close preview">&times;</button>
+      <div id="modalContent" class="modal-content"></div>
+    </div>
+  </div>
+
+  <noscript>
+    <div class="noscript-warning">
+      <p><strong>JavaScript is required</strong> for automatic loading. Please enable JavaScript or place a static index file listing materials.</p>
+    </div>
+  </noscript>
+
+  <script src="assets/js/app.js" defer></script>
+</body>
+</html>
